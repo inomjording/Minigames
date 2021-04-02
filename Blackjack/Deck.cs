@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
 
 namespace Blackjack
 {
     public class Deck
     {
-        public List<int> Cards = new List<int>();
+        public ArrayList Cards = new ArrayList();
         
         public Deck()
         {
@@ -12,10 +12,16 @@ namespace Blackjack
 
         private void BuildDeck()
         {
-            for (int i = 1; i < 11; i++)
+            for (var i = 2; i < 11; i++)
             {
-                
+                var temp = ArrayList.Repeat(i, 4);
+                this.Cards.AddRange(temp);
             }
+
+            var face = ArrayList.Repeat("K", 12);
+            var ace = ArrayList.Repeat("A", 4);
+            this.Cards.AddRange(face);
+            this.Cards.AddRange(ace);
         }
     }
 }
